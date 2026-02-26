@@ -838,6 +838,594 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
+   10. Interactive Features
+   ============================================================ */
+.copy-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 12px;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--color-medium-gray);
+	background: transparent;
+	border: 1px solid var(--color-light-gray);
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.copy-btn:hover {
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+}
+.copy-btn.copied {
+	border-color: #3a8a5c;
+	color: #3a8a5c;
+}
+.color-swatch--interactive {
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.color-swatch--interactive:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(40, 64, 69, 0.15);
+}
+.toast {
+	position: fixed;
+	bottom: 24px;
+	left: 50%;
+	transform: translateX(-50%) translateY(100px);
+	padding: 12px 24px;
+	background: var(--color-primary);
+	color: var(--color-white);
+	border-radius: 8px;
+	font-size: 14px;
+	opacity: 0;
+	transition: all 0.3s;
+	z-index: 1000;
+}
+.toast.show {
+	transform: translateX(-50%) translateY(0);
+	opacity: 1;
+}
+
+/* ============================================================
+   11. Motion Section
+   ============================================================ */
+.timing-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin-bottom: 48px;
+}
+.timing-card {
+	background: var(--color-bg-light);
+	border-radius: 12px;
+	padding: 24px;
+}
+.timing-card__label {
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--color-medium-gray);
+	margin-bottom: 8px;
+}
+.timing-card__value {
+	font-family: monospace;
+	font-size: 20px;
+	color: var(--color-primary);
+	margin-bottom: 12px;
+}
+.timing-card__desc {
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--color-medium-gray);
+}
+.ease-demo {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	padding: 24px;
+	background: var(--color-bg-light);
+	border-radius: 12px;
+	margin-bottom: 16px;
+}
+.ease-demo__track {
+	flex: 1;
+	height: 4px;
+	background: var(--color-light-gray);
+	border-radius: 2px;
+	position: relative;
+}
+.ease-demo__dot {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 16px;
+	height: 16px;
+	background: var(--color-accent);
+	border-radius: 50%;
+}
+.ease-demo:hover .ease-demo__dot {
+	animation: ease-slide 1s forwards;
+}
+@keyframes ease-slide {
+	to { left: calc(100% - 16px); }
+}
+.ease-demo__info {
+	min-width: 200px;
+}
+.ease-demo__name {
+	font-family: monospace;
+	font-size: 14px;
+	color: var(--color-primary);
+}
+.ease-demo__use {
+	font-size: 13px;
+	color: var(--color-medium-gray);
+}
+.animation-card {
+	display: flex;
+	gap: 24px;
+	padding: 24px;
+	background: var(--color-bg-light);
+	border-radius: 12px;
+	margin-bottom: 20px;
+}
+.animation-card__preview {
+	width: 120px;
+	height: 80px;
+	background: var(--color-primary);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-accent);
+	font-size: 14px;
+}
+.animation-card__content {
+	flex: 1;
+}
+.animation-card__title {
+	font-family: var(--font-display);
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+.animation-card__desc {
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--color-medium-gray);
+	margin-bottom: 8px;
+}
+.animation-card__code {
+	font-family: monospace;
+	font-size: 13px;
+	padding: 8px 12px;
+	background: var(--color-white);
+	border-radius: 6px;
+	color: var(--color-primary);
+}
+
+/* ============================================================
+   12. Accessibility Section
+   ============================================================ */
+.contrast-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	margin-bottom: 48px;
+}
+.contrast-card {
+	border-radius: 12px;
+	overflow: hidden;
+}
+.contrast-card__preview {
+	padding: 32px 24px;
+	min-height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-display);
+	font-size: 20px;
+}
+.contrast-card__info {
+	padding: 16px;
+	background: var(--color-white);
+	border: 1px solid var(--color-light-gray);
+	border-top: none;
+}
+.contrast-card__ratio {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
+}
+.contrast-card__value {
+	font-family: monospace;
+	font-size: 16px;
+	font-weight: bold;
+}
+.contrast-card__badge {
+	padding: 4px 10px;
+	border-radius: 4px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+.contrast-card__badge--aaa {
+	background: #3a8a5c;
+	color: white;
+}
+.contrast-card__badge--aa {
+	background: #5fa85f;
+	color: white;
+}
+.contrast-card__badge--fail {
+	background: var(--color-error);
+	color: white;
+}
+.contrast-card__colors {
+	font-size: 13px;
+	color: var(--color-medium-gray);
+}
+.a11y-specs {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin-bottom: 48px;
+}
+.a11y-spec {
+	padding: 24px;
+	background: var(--color-bg-light);
+	border-radius: 12px;
+	text-align: center;
+}
+.a11y-spec__icon {
+	width: 48px;
+	height: 48px;
+	margin: 0 auto 16px;
+	background: var(--color-primary);
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-accent);
+	font-size: 20px;
+}
+.a11y-spec__title {
+	font-family: var(--font-display);
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+.a11y-spec__value {
+	font-family: monospace;
+	font-size: 24px;
+	color: var(--color-accent);
+	margin-bottom: 8px;
+}
+.a11y-spec__desc {
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--color-medium-gray);
+}
+.focus-demo {
+	display: flex;
+	gap: 24px;
+	flex-wrap: wrap;
+	margin-bottom: 48px;
+}
+.focus-demo__item {
+	padding: 16px 32px;
+	border: 2px solid var(--color-light-gray);
+	border-radius: 6px;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.focus-demo__item:focus {
+	outline: none;
+	border-color: var(--color-accent);
+	box-shadow: 0 0 0 3px rgba(225, 187, 143, 0.3);
+}
+
+/* ============================================================
+   13. Icons Section
+   ============================================================ */
+.icon-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 20px;
+	margin-bottom: 48px;
+}
+.icon-card {
+	padding: 24px;
+	background: var(--color-bg-light);
+	border-radius: 12px;
+	text-align: center;
+	transition: all 0.2s;
+}
+.icon-card:hover {
+	background: var(--color-primary);
+}
+.icon-card:hover .icon-card__icon {
+	color: var(--color-accent);
+}
+.icon-card:hover .icon-card__name {
+	color: var(--color-white);
+}
+.icon-card__icon {
+	width: 32px;
+	height: 32px;
+	margin: 0 auto 12px;
+	color: var(--color-primary);
+	transition: color 0.2s;
+}
+.icon-card__icon svg {
+	width: 100%;
+	height: 100%;
+}
+.icon-card__name {
+	font-size: 12px;
+	color: var(--color-medium-gray);
+	transition: color 0.2s;
+}
+.icon-sizes {
+	display: flex;
+	align-items: flex-end;
+	gap: 32px;
+	margin-bottom: 48px;
+	padding: 32px;
+	background: var(--color-bg-light);
+	border-radius: 12px;
+}
+.icon-size {
+	text-align: center;
+}
+.icon-size__preview {
+	background: var(--color-primary);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-accent);
+	margin-bottom: 8px;
+}
+.icon-size__label {
+	font-family: monospace;
+	font-size: 12px;
+	color: var(--color-medium-gray);
+}
+
+/* ============================================================
+   14. Voice & Tone Section
+   ============================================================ */
+.voice-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 24px;
+	margin-bottom: 48px;
+}
+.voice-card {
+	padding: 32px;
+	background: var(--color-bg-light);
+	border-radius: 12px;
+}
+.voice-card__title {
+	font-family: var(--font-display);
+	font-size: 20px;
+	margin-bottom: 16px;
+	color: var(--color-primary);
+}
+.voice-card__example {
+	font-size: 18px;
+	line-height: 1.5;
+	margin-bottom: 16px;
+	padding: 20px;
+	background: var(--color-white);
+	border-radius: 8px;
+	border-left: 3px solid var(--color-accent);
+}
+.voice-card__note {
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--color-medium-gray);
+}
+.copy-examples {
+	margin-bottom: 48px;
+}
+.copy-example {
+	display: grid;
+	grid-template-columns: 120px 1fr 1fr;
+	gap: 24px;
+	padding: 20px 0;
+	border-bottom: 1px solid var(--color-light-gray);
+}
+.copy-example__type {
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--color-medium-gray);
+}
+.copy-example__do {
+	padding: 16px;
+	background: rgba(58, 138, 92, 0.1);
+	border-radius: 8px;
+	font-size: 14px;
+	line-height: 1.5;
+}
+.copy-example__dont {
+	padding: 16px;
+	background: rgba(199, 80, 80, 0.1);
+	border-radius: 8px;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+/* ============================================================
+   15. Patterns Section
+   ============================================================ */
+.pattern-showcase {
+	margin-bottom: 48px;
+}
+.pattern-card {
+	margin-bottom: 32px;
+	border: 1px solid var(--color-light-gray);
+	border-radius: 12px;
+	overflow: hidden;
+}
+.pattern-card__preview {
+	padding: 40px;
+	background: var(--color-bg-light);
+}
+.pattern-card__info {
+	padding: 24px;
+	background: var(--color-white);
+}
+.pattern-card__title {
+	font-family: var(--font-display);
+	font-size: 20px;
+	margin-bottom: 12px;
+}
+.pattern-card__desc {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--color-medium-gray);
+	margin-bottom: 16px;
+}
+.pattern-card__specs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+.pattern-card__spec {
+	font-family: monospace;
+	font-size: 12px;
+	padding: 6px 12px;
+	background: var(--color-bg-light);
+	border-radius: 4px;
+}
+
+/* ============================================================
+   16. Assets Section
+   ============================================================ */
+.asset-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+	margin-bottom: 48px;
+}
+.asset-card {
+	padding: 32px;
+	background: var(--color-bg-light);
+	border-radius: 12px;
+	text-align: center;
+}
+.asset-card__icon {
+	width: 64px;
+	height: 64px;
+	margin: 0 auto 16px;
+	background: var(--color-primary);
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-accent);
+	font-size: 24px;
+}
+.asset-card__title {
+	font-family: var(--font-display);
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+.asset-card__desc {
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--color-medium-gray);
+	margin-bottom: 16px;
+}
+.asset-card__btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background: var(--color-primary);
+	color: var(--color-accent);
+	border-radius: 6px;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	transition: background 0.2s;
+}
+.asset-card__btn:hover {
+	background: #1b2e32;
+}
+.version-info {
+	padding: 24px;
+	background: var(--color-bg-light);
+	border-radius: 12px;
+	margin-bottom: 48px;
+}
+.version-info__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+.version-info__number {
+	font-family: var(--font-display);
+	font-size: 24px;
+}
+.version-info__date {
+	font-size: 14px;
+	color: var(--color-medium-gray);
+}
+.changelog {
+	list-style: disc;
+	padding-left: 20px;
+	font-size: 14px;
+	line-height: 1.8;
+	color: var(--color-medium-gray);
+}
+
+/* ============================================================
+   17. Code Blocks
+   ============================================================ */
+.code-block {
+	background: var(--color-primary);
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 24px;
+	overflow-x: auto;
+}
+.code-block code {
+	font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+	font-size: 13px;
+	line-height: 1.6;
+	color: var(--color-light-gray);
+}
+.code-block .comment { color: var(--color-medium-gray); }
+.code-block .property { color: var(--color-accent); }
+.code-block .value { color: #9ed4a3; }
+
+/* ============================================================
+   Responsive Additions
+   ============================================================ */
+@media (max-width: 768px) {
+	.timing-grid { grid-template-columns: 1fr; }
+	.contrast-grid { grid-template-columns: 1fr; }
+	.a11y-specs { grid-template-columns: 1fr; }
+	.icon-grid { grid-template-columns: repeat(3, 1fr); }
+	.voice-grid { grid-template-columns: 1fr; }
+	.asset-grid { grid-template-columns: 1fr; }
+	.copy-example { grid-template-columns: 1fr; }
+	.copy-example__type { margin-bottom: 8px; }
+}
+
+/* ============================================================
    Print
    ============================================================ */
 @media print {
@@ -870,7 +1458,7 @@ a { color: inherit; text-decoration: none; }
 	</div>
 	<h1 class="cover__title">OVITRINO</h1>
 	<p class="cover__tagline">Your <em>Rooms.</em> Your <em>Rules.</em></p>
-	<p class="cover__year">Brand Guidelines &mdash; 2025</p>
+	<p class="cover__year">Brand Guidelines &mdash; Version 2.0 &mdash; 2025</p>
 </section>
 
 <!-- ============================================================
@@ -884,7 +1472,13 @@ a { color: inherit; text-decoration: none; }
 		<a class="toc__link" href="#typography">Typography</a>
 		<a class="toc__link" href="#components">Components</a>
 		<a class="toc__link" href="#layout">Layout</a>
+		<a class="toc__link" href="#motion">Motion</a>
+		<a class="toc__link" href="#accessibility">Accessibility</a>
+		<a class="toc__link" href="#icons">Icons</a>
+		<a class="toc__link" href="#voice">Voice</a>
+		<a class="toc__link" href="#patterns">Patterns</a>
 		<a class="toc__link" href="#guidelines">Guidelines</a>
+		<a class="toc__link" href="#assets">Assets</a>
 	</div>
 </nav>
 
@@ -1101,8 +1695,9 @@ a { color: inherit; text-decoration: none; }
 		<span class="section__label">03 / Colors</span>
 		<h2 class="section__title">Color Palette</h2>
 
+		<p style="font-size: 14px; color: var(--color-medium-gray); margin-bottom: 24px;">Click any color swatch to copy its hex value to clipboard.</p>
 		<div class="color-grid">
-			<div class="color-swatch">
+			<div class="color-swatch" title="Click to copy #284045">
 				<div class="color-swatch__block" style="background: #284045;"></div>
 				<div class="color-swatch__info">
 					<p class="color-swatch__name">Dark Teal</p>
@@ -1518,10 +2113,540 @@ a { color: inherit; text-decoration: none; }
 </section>
 
 <!-- ============================================================
-     9. DO'S AND DON'TS
+     7. MOTION & ANIMATION
+     ============================================================ -->
+<section class="section" id="motion">
+	<span class="section__label">07 / Motion</span>
+	<h2 class="section__title">Motion &amp; Animation</h2>
+
+	<p class="mission" style="font-size: 18px; margin-bottom: 48px;">Animation reinforces brand personality. All motion should feel sophisticated, deliberate, and never distracting. We use subtle transitions that guide attention without overwhelming the experience.</p>
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Timing Functions</h3>
+	<div class="timing-grid">
+		<div class="timing-card">
+			<p class="timing-card__label">Quick Interactions</p>
+			<p class="timing-card__value">0.2s</p>
+			<p class="timing-card__desc">Hover states, focus rings, color changes. Instant feedback for micro-interactions.</p>
+		</div>
+		<div class="timing-card">
+			<p class="timing-card__label">Standard Transitions</p>
+			<p class="timing-card__value">0.35s</p>
+			<p class="timing-card__desc">Button animations, input focus, link hovers. The default for most UI elements.</p>
+		</div>
+		<div class="timing-card">
+			<p class="timing-card__label">Emphasis Transitions</p>
+			<p class="timing-card__value">0.4s - 0.5s</p>
+			<p class="timing-card__desc">Modal entrances, panel slides, content reveals. Deliberate, noticeable animations.</p>
+		</div>
+	</div>
+
+	<hr class="section__divider">
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Easing Curves</h3>
+	<div class="ease-demo" style="--ease: ease-out;">
+		<div class="ease-demo__track">
+			<div class="ease-demo__dot" style="transition: left 1s ease-out;"></div>
+		</div>
+		<div class="ease-demo__info">
+			<p class="ease-demo__name">ease-out</p>
+			<p class="ease-demo__use">Primary easing for entrances</p>
+		</div>
+	</div>
+	<div class="ease-demo" style="--ease: ease-in-out;">
+		<div class="ease-demo__track">
+			<div class="ease-demo__dot" style="transition: left 1s ease-in-out;"></div>
+		</div>
+		<div class="ease-demo__info">
+			<p class="ease-demo__name">ease-in-out</p>
+			<p class="ease-demo__use">Symmetric transitions, toggles</p>
+		</div>
+	</div>
+	<div class="ease-demo" style="--ease: ease;">
+		<div class="ease-demo__track">
+			<div class="ease-demo__dot" style="transition: left 1s ease;"></div>
+		</div>
+		<div class="ease-demo__info">
+			<p class="ease-demo__name">ease</p>
+			<p class="ease-demo__use">Default, general-purpose</p>
+		</div>
+	</div>
+
+	<hr class="section__divider">
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Animation Patterns</h3>
+	<div class="animation-card">
+		<div class="animation-card__preview">Fade In</div>
+		<div class="animation-card__content">
+			<h4 class="animation-card__title">Scroll-Triggered Entrance</h4>
+			<p class="animation-card__desc">Content fades in and translates up as it enters the viewport. Uses AOS (Animate On Scroll) library with custom delays for staggered reveals.</p>
+			<p class="animation-card__code">opacity: 0 → 1; transform: translateY(100px) → translateY(0)</p>
+		</div>
+	</div>
+	<div class="animation-card">
+		<div class="animation-card__preview">Hover</div>
+		<div class="animation-card__content">
+			<h4 class="animation-card__title">Button &amp; Card Hover</h4>
+			<p class="animation-card__desc">Background color transitions with subtle border changes. Cards may lift slightly with a shadow increase.</p>
+			<p class="animation-card__code">transition: all 0.35s; background: transparent → #e1bb8f</p>
+		</div>
+	</div>
+	<div class="animation-card">
+		<div class="animation-card__preview">Modal</div>
+		<div class="animation-card__content">
+			<h4 class="animation-card__title">Modal Entrance</h4>
+			<p class="animation-card__desc">Backdrop fades in while modal slides up from below. Creates depth and draws attention to new content.</p>
+			<p class="animation-card__code">opacity: 0 → 1; transform: translateY(30px) → translateY(0); duration: 0.35s</p>
+		</div>
+	</div>
+	<div class="animation-card">
+		<div class="animation-card__preview">Sticky</div>
+		<div class="animation-card__content">
+			<h4 class="animation-card__title">Sticky Label Flip</h4>
+			<p class="animation-card__desc">Section labels flip border-radius when becoming sticky. Quick 0.15s transition maintains responsiveness.</p>
+			<p class="animation-card__code">border-radius: 20px 20px 0 0 → 0 0 20px 20px</p>
+		</div>
+	</div>
+
+	<hr class="section__divider">
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Reduced Motion</h3>
+	<div class="type-rule" style="max-width: 600px;">
+		<h4 class="type-rule__title">Accessibility Consideration</h4>
+		<p class="type-rule__text">Always respect <code>prefers-reduced-motion</code>. When enabled, disable scroll-triggered animations, reduce transition durations to near-instant (0.01s), and keep essential state changes visible without motion.</p>
+		<div class="code-block" style="margin-top: 16px;">
+			<code><span class="comment">/* Reduced motion support */</span><br>
+@media (prefers-reduced-motion: reduce) {<br>
+&nbsp;&nbsp;*, *::before, *::after {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="property">animation-duration</span>: <span class="value">0.01ms</span> !important;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="property">transition-duration</span>: <span class="value">0.01ms</span> !important;<br>
+&nbsp;&nbsp;}<br>
+}</code>
+		</div>
+	</div>
+</section>
+
+<!-- ============================================================
+     8. ACCESSIBILITY
+     ============================================================ -->
+<section class="section section--light" id="accessibility" style="max-width: none; padding-left: 0; padding-right: 0;">
+	<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+		<span class="section__label">08 / Accessibility</span>
+		<h2 class="section__title">Accessibility Guidelines</h2>
+
+		<p class="mission" style="font-size: 18px; margin-bottom: 48px;">OVITRINO is committed to WCAG 2.1 AA compliance. All color combinations, interactive elements, and content must be accessible to users of all abilities.</p>
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Color Contrast Ratios</h3>
+		<div class="contrast-grid">
+			<div class="contrast-card">
+				<div class="contrast-card__preview" style="background: #284045; color: #e1bb8f;">Gold on Dark Teal</div>
+				<div class="contrast-card__info">
+					<div class="contrast-card__ratio">
+						<span class="contrast-card__value">5.2:1</span>
+						<span class="contrast-card__badge contrast-card__badge--aa">AA Pass</span>
+					</div>
+					<p class="contrast-card__colors">#e1bb8f on #284045</p>
+				</div>
+			</div>
+			<div class="contrast-card">
+				<div class="contrast-card__preview" style="background: #284045; color: #ffffff;">White on Dark Teal</div>
+				<div class="contrast-card__info">
+					<div class="contrast-card__ratio">
+						<span class="contrast-card__value">10.4:1</span>
+						<span class="contrast-card__badge contrast-card__badge--aaa">AAA Pass</span>
+					</div>
+					<p class="contrast-card__colors">#ffffff on #284045</p>
+				</div>
+			</div>
+			<div class="contrast-card">
+				<div class="contrast-card__preview" style="background: #f5f3f1; color: #284045;">Dark Teal on Off-White</div>
+				<div class="contrast-card__info">
+					<div class="contrast-card__ratio">
+						<span class="contrast-card__value">9.1:1</span>
+						<span class="contrast-card__badge contrast-card__badge--aaa">AAA Pass</span>
+					</div>
+					<p class="contrast-card__colors">#284045 on #f5f3f1</p>
+				</div>
+			</div>
+			<div class="contrast-card">
+				<div class="contrast-card__preview" style="background: #e1bb8f; color: #284045;">Dark Teal on Gold</div>
+				<div class="contrast-card__info">
+					<div class="contrast-card__ratio">
+						<span class="contrast-card__value">5.2:1</span>
+						<span class="contrast-card__badge contrast-card__badge--aa">AA Pass</span>
+					</div>
+					<p class="contrast-card__colors">#284045 on #e1bb8f</p>
+				</div>
+			</div>
+			<div class="contrast-card">
+				<div class="contrast-card__preview" style="background: #284045; color: #d6dfde;">Light Gray on Dark Teal</div>
+				<div class="contrast-card__info">
+					<div class="contrast-card__ratio">
+						<span class="contrast-card__value">7.9:1</span>
+						<span class="contrast-card__badge contrast-card__badge--aaa">AAA Pass</span>
+					</div>
+					<p class="contrast-card__colors">#d6dfde on #284045</p>
+				</div>
+			</div>
+			<div class="contrast-card">
+				<div class="contrast-card__preview" style="background: #f5f3f1; color: #68797d;">Medium Gray on Off-White</div>
+				<div class="contrast-card__info">
+					<div class="contrast-card__ratio">
+						<span class="contrast-card__value">4.5:1</span>
+						<span class="contrast-card__badge contrast-card__badge--aa">AA Pass</span>
+					</div>
+					<p class="contrast-card__colors">#68797d on #f5f3f1</p>
+				</div>
+			</div>
+		</div>
+
+		<hr class="section__divider">
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Interactive Element Requirements</h3>
+		<div class="a11y-specs">
+			<div class="a11y-spec">
+				<div class="a11y-spec__icon">44</div>
+				<h4 class="a11y-spec__title">Touch Target</h4>
+				<p class="a11y-spec__value">44 × 44px</p>
+				<p class="a11y-spec__desc">Minimum touch target size for buttons, links, and interactive elements on mobile.</p>
+			</div>
+			<div class="a11y-spec">
+				<div class="a11y-spec__icon">3px</div>
+				<h4 class="a11y-spec__title">Focus Ring</h4>
+				<p class="a11y-spec__value">3px offset</p>
+				<p class="a11y-spec__desc">Visible focus indicator with gold accent color and sufficient contrast.</p>
+			</div>
+			<div class="a11y-spec">
+				<div class="a11y-spec__icon">16</div>
+				<h4 class="a11y-spec__title">Min Font Size</h4>
+				<p class="a11y-spec__value">16px</p>
+				<p class="a11y-spec__desc">Base body text size. Never go below 13px for any readable content.</p>
+			</div>
+		</div>
+
+		<hr class="section__divider">
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Focus States</h3>
+		<p style="font-size: 15px; line-height: 1.7; color: var(--color-medium-gray); margin-bottom: 24px;">All interactive elements must have visible focus states. Tab through the examples below to see the focus ring styling.</p>
+		<div class="focus-demo">
+			<button class="focus-demo__item" tabindex="0">Button Focus</button>
+			<input class="bb-input" type="text" placeholder="Input Focus" style="max-width: 200px;">
+			<a href="#" class="focus-demo__item" tabindex="0">Link Focus</a>
+		</div>
+
+		<div class="code-block">
+			<code><span class="comment">/* Focus state styling */</span><br>
+:focus {<br>
+&nbsp;&nbsp;<span class="property">outline</span>: <span class="value">none</span>;<br>
+&nbsp;&nbsp;<span class="property">box-shadow</span>: <span class="value">0 0 0 3px rgba(225, 187, 143, 0.4)</span>;<br>
+&nbsp;&nbsp;<span class="property">border-color</span>: <span class="value">#e1bb8f</span>;<br>
+}</code>
+		</div>
+
+		<hr class="section__divider">
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Screen Reader Considerations</h3>
+		<div class="type-rules">
+			<div class="type-rule">
+				<h4 class="type-rule__title">Semantic HTML</h4>
+				<p class="type-rule__text">Use proper heading hierarchy (h1 → h6), landmark roles (header, main, nav, footer), and meaningful link text. Never use "click here" or "read more" alone.</p>
+			</div>
+			<div class="type-rule">
+				<h4 class="type-rule__title">Alt Text</h4>
+				<p class="type-rule__text">All images must have descriptive alt text. Decorative images use alt="". Icons with meaning need aria-label or visually-hidden text.</p>
+			</div>
+			<div class="type-rule">
+				<h4 class="type-rule__title">ARIA Labels</h4>
+				<p class="type-rule__text">Use aria-label for icon buttons, aria-describedby for form hints, and aria-live for dynamic content updates.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ============================================================
+     9. ICONS
+     ============================================================ -->
+<section class="section" id="icons">
+	<span class="section__label">09 / Icons</span>
+	<h2 class="section__title">Iconography</h2>
+
+	<p class="mission" style="font-size: 18px; margin-bottom: 48px;">Icons are minimal, stroke-based, and serve functional purposes. They complement text rather than replace it, maintaining the brand's sophisticated aesthetic.</p>
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Icon Library</h3>
+	<div class="icon-grid">
+		<div class="icon-card">
+			<div class="icon-card__icon">
+				<svg viewBox="0 0 21 22" fill="none"><path d="m10 21 10-10L10 1m10 10.313H.033" stroke="currentColor"/></svg>
+			</div>
+			<p class="icon-card__name">arrow</p>
+		</div>
+		<div class="icon-card">
+			<div class="icon-card__icon">
+				<svg viewBox="0 0 16 6" fill="none"><path d="m0 3 5 2.887V.113L0 3Zm16-.5H4.5v1H16v-1Z" fill="currentColor"/></svg>
+			</div>
+			<p class="icon-card__name">arrow-back</p>
+		</div>
+		<div class="icon-card">
+			<div class="icon-card__icon">
+				<svg viewBox="0 0 40 40" fill="none"><path stroke="currentColor" d="M28 14.5H12m16 6H12m16 6H12"/></svg>
+			</div>
+			<p class="icon-card__name">burger</p>
+		</div>
+		<div class="icon-card">
+			<div class="icon-card__icon">
+				<svg viewBox="0 0 40 40" fill="none"><path d="m12 12 16 16m0-16L12 28" stroke="currentColor" stroke-linejoin="round"/></svg>
+			</div>
+			<p class="icon-card__name">close</p>
+		</div>
+		<div class="icon-card">
+			<div class="icon-card__icon">
+				<svg viewBox="0 0 25 28" fill="none"><path d="M24 14 1.5 26.99V1.01L24 14Z" fill="currentColor"/></svg>
+			</div>
+			<p class="icon-card__name">play</p>
+		</div>
+		<div class="icon-card">
+			<div class="icon-card__icon">
+				<svg viewBox="0 0 41 40" fill="none"><rect x="1" y=".5" width="39" height="39" rx="19.5" stroke="currentColor"/><path d="m20.5 12-2.887 5h5.774L20.5 12Zm0 16h.5V16.5h-1V28h.5Z" fill="currentColor"/></svg>
+			</div>
+			<p class="icon-card__name">to-top</p>
+		</div>
+	</div>
+
+	<hr class="section__divider">
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Icon Sizes</h3>
+	<div class="icon-sizes">
+		<div class="icon-size">
+			<div class="icon-size__preview" style="width: 32px; height: 32px; padding: 4px;">
+				<svg viewBox="0 0 21 22" fill="none"><path d="m10 21 10-10L10 1m10 10.313H.033" stroke="currentColor"/></svg>
+			</div>
+			<p class="icon-size__label">16px</p>
+		</div>
+		<div class="icon-size">
+			<div class="icon-size__preview" style="width: 40px; height: 40px; padding: 8px;">
+				<svg viewBox="0 0 21 22" fill="none"><path d="m10 21 10-10L10 1m10 10.313H.033" stroke="currentColor"/></svg>
+			</div>
+			<p class="icon-size__label">24px</p>
+		</div>
+		<div class="icon-size">
+			<div class="icon-size__preview" style="width: 48px; height: 48px; padding: 8px;">
+				<svg viewBox="0 0 21 22" fill="none"><path d="m10 21 10-10L10 1m10 10.313H.033" stroke="currentColor"/></svg>
+			</div>
+			<p class="icon-size__label">32px</p>
+		</div>
+		<div class="icon-size">
+			<div class="icon-size__preview" style="width: 64px; height: 64px; padding: 12px;">
+				<svg viewBox="0 0 21 22" fill="none"><path d="m10 21 10-10L10 1m10 10.313H.033" stroke="currentColor"/></svg>
+			</div>
+			<p class="icon-size__label">40px</p>
+		</div>
+	</div>
+
+	<hr class="section__divider">
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Icon Guidelines</h3>
+	<div class="type-rules">
+		<div class="type-rule">
+			<h4 class="type-rule__title">Stroke Weight</h4>
+			<p class="type-rule__text">Icons use 1px stroke weight at standard sizes. Scale stroke proportionally when icon size increases significantly.</p>
+		</div>
+		<div class="type-rule">
+			<h4 class="type-rule__title">Color Usage</h4>
+			<p class="type-rule__text">Icons inherit text color via currentColor. On dark backgrounds use Gold (#e1bb8f). On light backgrounds use Dark Teal (#284045).</p>
+		</div>
+		<div class="type-rule">
+			<h4 class="type-rule__title">Alignment</h4>
+			<p class="type-rule__text">Icons should be optically centered within their bounds. When paired with text, vertically align to the text baseline or center.</p>
+		</div>
+	</div>
+</section>
+
+<!-- ============================================================
+     10. VOICE & TONE
+     ============================================================ -->
+<section class="section section--light" id="voice" style="max-width: none; padding-left: 0; padding-right: 0;">
+	<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+		<span class="section__label">10 / Voice &amp; Tone</span>
+		<h2 class="section__title">Voice &amp; Tone</h2>
+
+		<p class="mission" style="font-size: 18px; margin-bottom: 48px;">OVITRINO speaks with quiet confidence. Our voice is knowledgeable but never condescending, exclusive but welcoming to those who belong, sophisticated without being pretentious.</p>
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Voice Principles</h3>
+		<div class="voice-grid">
+			<div class="voice-card">
+				<h4 class="voice-card__title">Confident, Not Arrogant</h4>
+				<div class="voice-card__example">"Infrastructure built for serious collectors."</div>
+				<p class="voice-card__note">State capabilities directly. Let quality speak for itself without boasting.</p>
+			</div>
+			<div class="voice-card">
+				<h4 class="voice-card__title">Exclusive, Not Elitist</h4>
+				<div class="voice-card__example">"Access is earned. Rooms are invite-only."</div>
+				<p class="voice-card__note">Acknowledge exclusivity as a feature, not a barrier. It protects value.</p>
+			</div>
+			<div class="voice-card">
+				<h4 class="voice-card__title">Clear, Not Simplistic</h4>
+				<div class="voice-card__example">"Set your access rules. Invite members. Start showcasing."</div>
+				<p class="voice-card__note">Respect the audience's intelligence while remaining accessible.</p>
+			</div>
+			<div class="voice-card">
+				<h4 class="voice-card__title">Warm, Not Casual</h4>
+				<div class="voice-card__example">"Your Rooms. Your Rules."</div>
+				<p class="voice-card__note">Direct address creates connection without sacrificing professionalism.</p>
+			</div>
+		</div>
+
+		<hr class="section__divider">
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Copy Examples</h3>
+		<div class="copy-examples">
+			<div class="copy-example">
+				<span class="copy-example__type">CTA Buttons</span>
+				<div class="copy-example__do"><strong>Do:</strong> "Join the Waitlist" / "Learn More" / "Get Started"</div>
+				<div class="copy-example__dont"><strong>Don't:</strong> "Click Here!" / "Submit" / "Sign Up Now!!!"</div>
+			</div>
+			<div class="copy-example">
+				<span class="copy-example__type">Headlines</span>
+				<div class="copy-example__do"><strong>Do:</strong> "Private Sales Infrastructure" / "Collection Management"</div>
+				<div class="copy-example__dont"><strong>Don't:</strong> "The BEST Platform Ever!" / "Amazing Features Inside"</div>
+			</div>
+			<div class="copy-example">
+				<span class="copy-example__type">Error Messages</span>
+				<div class="copy-example__do"><strong>Do:</strong> "Please enter a valid email address"</div>
+				<div class="copy-example__dont"><strong>Don't:</strong> "Oops! Something went wrong :(" / "ERROR 422"</div>
+			</div>
+			<div class="copy-example">
+				<span class="copy-example__type">Success States</span>
+				<div class="copy-example__do"><strong>Do:</strong> "You're on the list. We'll be in touch."</div>
+				<div class="copy-example__dont"><strong>Don't:</strong> "Yay! You did it! 🎉🎉🎉"</div>
+			</div>
+		</div>
+
+		<hr class="section__divider">
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Capitalization Rules</h3>
+		<div class="type-rules">
+			<div class="type-rule">
+				<h4 class="type-rule__title">Brand Name</h4>
+				<p class="type-rule__text">OVITRINO is always uppercase. Never "Ovitrino" or "ovitrino".</p>
+			</div>
+			<div class="type-rule">
+				<h4 class="type-rule__title">Headings</h4>
+				<p class="type-rule__text">Use Title Case for section headings. Sentence case for subheadings and body text.</p>
+			</div>
+			<div class="type-rule">
+				<h4 class="type-rule__title">Buttons &amp; Labels</h4>
+				<p class="type-rule__text">UPPERCASE with 0.04em letter-spacing for buttons, navigation, and UI labels.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ============================================================
+     11. PATTERNS
+     ============================================================ -->
+<section class="section" id="patterns">
+	<span class="section__label">11 / Patterns</span>
+	<h2 class="section__title">UI Patterns</h2>
+
+	<p class="mission" style="font-size: 18px; margin-bottom: 48px;">Reusable interface patterns ensure consistency across the product. Each pattern has defined structure, spacing, and behavior.</p>
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Navigation</h3>
+	<div class="pattern-card">
+		<div class="pattern-card__preview" style="background: var(--color-primary);">
+			<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; color: var(--color-white);">
+				<svg viewBox="0 0 160 160" width="50" height="50" style="flex-shrink: 0;">
+					<rect x="10" y="10" width="140" height="140" rx="24" fill="transparent" stroke="#D8B48A" stroke-width="3"/>
+					<rect x="28" y="28" width="44" height="44" rx="10" fill="transparent" stroke="#D8B48A" stroke-width="3"/>
+					<circle cx="108" cy="50" r="22" fill="transparent" stroke="#D8B48A" stroke-width="3"/>
+					<circle cx="50" cy="108" r="22" fill="transparent" stroke="#D8B48A" stroke-width="3"/>
+					<rect x="86" y="86" width="44" height="44" rx="10" fill="transparent" stroke="#D8B48A" stroke-width="3"/>
+				</svg>
+				<button class="bb-btn bb-btn--ghost" style="font-size: 12px; padding: 10px 20px 8px;">Join the Waitlist</button>
+			</div>
+		</div>
+		<div class="pattern-card__info">
+			<h4 class="pattern-card__title">Header</h4>
+			<p class="pattern-card__desc">Fixed header with logo left, primary CTA right. Collapses to hamburger menu on mobile (≤1024px). Background matches page background color.</p>
+			<div class="pattern-card__specs">
+				<span class="pattern-card__spec">padding: 10px 30px</span>
+				<span class="pattern-card__spec">mobile: padding 10px</span>
+				<span class="pattern-card__spec">z-index: 100</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="pattern-card">
+		<div class="pattern-card__preview" style="text-align: center;">
+			<div class="bb-sticky-label">Features</div>
+		</div>
+		<div class="pattern-card__info">
+			<h4 class="pattern-card__title">Section Sticky Label</h4>
+			<p class="pattern-card__desc">Centered tab that marks section starts. Flips border-radius when sticky. Gold background, dark teal text, uppercase.</p>
+			<div class="pattern-card__specs">
+				<span class="pattern-card__spec">padding: 18px 30px 13px</span>
+				<span class="pattern-card__spec">font-size: 20px (16px mobile)</span>
+				<span class="pattern-card__spec">border-radius: 20px</span>
+			</div>
+		</div>
+	</div>
+
+	<hr class="section__divider">
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Content Blocks</h3>
+	<div class="pattern-card">
+		<div class="pattern-card__preview">
+			<div style="display: grid; grid-template-columns: 100px 1fr 40px; gap: 24px; align-items: center; padding: 24px; background: var(--color-white); border-radius: 8px;">
+				<div style="width: 100px; height: 100px; background: var(--color-light-gray); border-radius: 4px;"></div>
+				<div>
+					<h4 style="font-family: var(--font-display); font-size: 18px; margin-bottom: 8px;">Article Title</h4>
+					<p style="font-size: 14px; color: var(--color-medium-gray);">Brief description of the article content goes here...</p>
+				</div>
+				<div style="width: 40px; height: 40px; border: 1px solid var(--color-primary); display: flex; align-items: center; justify-content: center;">
+					<svg viewBox="0 0 21 22" width="16" height="16" fill="none"><path d="m10 21 10-10L10 1m10 10.313H.033" stroke="currentColor"/></svg>
+				</div>
+			</div>
+		</div>
+		<div class="pattern-card__info">
+			<h4 class="pattern-card__title">Article Card (Read Block)</h4>
+			<p class="pattern-card__desc">Horizontal card with thumbnail, title + description, and arrow button. Alternates image position on odd/even rows on desktop.</p>
+			<div class="pattern-card__specs">
+				<span class="pattern-card__spec">image: 200×200px</span>
+				<span class="pattern-card__spec">gap: 50px</span>
+				<span class="pattern-card__spec">arrow: 55×55px</span>
+				<span class="pattern-card__spec">hover: radial gradient bg</span>
+			</div>
+		</div>
+	</div>
+
+	<hr class="section__divider">
+
+	<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Form Patterns</h3>
+	<div class="pattern-card">
+		<div class="pattern-card__preview" style="background: var(--color-primary);">
+			<div style="max-width: 400px; margin: 0 auto;">
+				<div style="margin-bottom: 16px;">
+					<input class="bb-input bb-input--on-dark" type="email" placeholder="Enter your email" style="width: 100%;" readonly>
+				</div>
+				<button class="bb-btn bb-btn--ghost" style="width: 100%;">Join the Waitlist</button>
+			</div>
+		</div>
+		<div class="pattern-card__info">
+			<h4 class="pattern-card__title">Waitlist Form</h4>
+			<p class="pattern-card__desc">Email input with submit button. Stacked vertically with consistent spacing. Error state shows red border + message below input.</p>
+			<div class="pattern-card__specs">
+				<span class="pattern-card__spec">input padding: 14px 18px</span>
+				<span class="pattern-card__spec">gap: 16px</span>
+				<span class="pattern-card__spec">border-radius: 6px</span>
+				<span class="pattern-card__spec">focus: gold border</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ============================================================
+     12. DO'S AND DON'TS
      ============================================================ -->
 <section class="section" id="guidelines">
-	<span class="section__label">07 / Guidelines</span>
+	<span class="section__label">12 / Guidelines</span>
 	<h2 class="section__title">Do&rsquo;s and Don&rsquo;ts</h2>
 
 	<div class="dodont-grid">
@@ -1705,10 +2830,208 @@ a { color: inherit; text-decoration: none; }
 	</div>
 </section>
 
+<!-- ============================================================
+     13. ASSETS
+     ============================================================ -->
+<section class="section section--light" id="assets" style="max-width: none; padding-left: 0; padding-right: 0;">
+	<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+		<span class="section__label">13 / Assets</span>
+		<h2 class="section__title">Brand Assets</h2>
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Version Information</h3>
+		<div class="version-info">
+			<div class="version-info__header">
+				<span class="version-info__number">Version 2.0</span>
+				<span class="version-info__date">Last updated: January 2025</span>
+			</div>
+			<ul class="changelog">
+				<li>Added Motion &amp; Animation guidelines</li>
+				<li>Added Accessibility section with WCAG compliance info</li>
+				<li>Added Iconography system documentation</li>
+				<li>Added Voice &amp; Tone guidelines</li>
+				<li>Added UI Patterns section</li>
+				<li>Enhanced color section with contrast ratios</li>
+				<li>Added interactive copy-to-clipboard for colors</li>
+				<li>Documented responsive breakpoint system</li>
+			</ul>
+		</div>
+
+		<hr class="section__divider">
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Downloads</h3>
+		<div class="asset-grid">
+			<div class="asset-card">
+				<div class="asset-card__icon">
+					<svg viewBox="0 0 160 160" width="32" height="32">
+						<rect x="10" y="10" width="140" height="140" rx="24" fill="transparent" stroke="currentColor" stroke-width="3"/>
+						<rect x="28" y="28" width="44" height="44" rx="10" fill="transparent" stroke="currentColor" stroke-width="3"/>
+						<circle cx="108" cy="50" r="22" fill="transparent" stroke="currentColor" stroke-width="3"/>
+						<circle cx="50" cy="108" r="22" fill="transparent" stroke="currentColor" stroke-width="3"/>
+						<rect x="86" y="86" width="44" height="44" rx="10" fill="transparent" stroke="currentColor" stroke-width="3"/>
+					</svg>
+				</div>
+				<h4 class="asset-card__title">Logo Files</h4>
+				<p class="asset-card__desc">SVG and PNG formats at various sizes. Includes light and dark versions.</p>
+				<a href="#" class="asset-card__btn" onclick="alert('Logo package download would start here'); return false;">Download</a>
+			</div>
+			<div class="asset-card">
+				<div class="asset-card__icon">Aa</div>
+				<h4 class="asset-card__title">Font Files</h4>
+				<p class="asset-card__desc">Kudryashev Sans, Kudryashev, and GraphikRBCLC in WOFF2 format.</p>
+				<a href="#" class="asset-card__btn" onclick="alert('Fonts are proprietary. Contact brand team for licensing.'); return false;">Request Access</a>
+			</div>
+			<div class="asset-card">
+				<div class="asset-card__icon">
+					<svg viewBox="0 0 21 22" width="24" height="24" fill="none"><path d="m10 21 10-10L10 1m10 10.313H.033" stroke="currentColor"/></svg>
+				</div>
+				<h4 class="asset-card__title">Icon Sprite</h4>
+				<p class="asset-card__desc">Complete SVG sprite with all brand icons. Ready for web use.</p>
+				<a href="images/spritemap.svg" class="asset-card__btn" download>Download SVG</a>
+			</div>
+		</div>
+
+		<hr class="section__divider">
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">CSS Variables</h3>
+		<p style="font-size: 15px; line-height: 1.7; color: var(--color-medium-gray); margin-bottom: 24px;">Copy these CSS custom properties to ensure consistent implementation across all projects.</p>
+		<div class="code-block">
+			<code><span class="comment">/* OVITRINO CSS Custom Properties */</span><br>
+:root {<br>
+&nbsp;&nbsp;<span class="comment">/* Colors */</span><br>
+&nbsp;&nbsp;<span class="property">--color-primary</span>: <span class="value">#284045</span>;<br>
+&nbsp;&nbsp;<span class="property">--color-accent</span>: <span class="value">#e1bb8f</span>;<br>
+&nbsp;&nbsp;<span class="property">--color-logo-stroke</span>: <span class="value">#D8B48A</span>;<br>
+&nbsp;&nbsp;<span class="property">--color-bg-light</span>: <span class="value">#f5f3f1</span>;<br>
+&nbsp;&nbsp;<span class="property">--color-light-gray</span>: <span class="value">#d6dfde</span>;<br>
+&nbsp;&nbsp;<span class="property">--color-white</span>: <span class="value">#ffffff</span>;<br>
+&nbsp;&nbsp;<span class="property">--color-medium-gray</span>: <span class="value">#68797d</span>;<br>
+&nbsp;&nbsp;<span class="property">--color-error</span>: <span class="value">#c75050</span>;<br><br>
+&nbsp;&nbsp;<span class="comment">/* Typography */</span><br>
+&nbsp;&nbsp;<span class="property">--font-display</span>: <span class="value">"Kudryashev Sans", serif</span>;<br>
+&nbsp;&nbsp;<span class="property">--font-display-alt</span>: <span class="value">"Kudryashev", serif</span>;<br>
+&nbsp;&nbsp;<span class="property">--font-body</span>: <span class="value">"GraphikRBCLC", Arial, sans-serif</span>;<br><br>
+&nbsp;&nbsp;<span class="comment">/* Fluid Scaling */</span><br>
+&nbsp;&nbsp;<span class="property">--width-base</span>: <span class="value">1366</span>;<br>
+&nbsp;&nbsp;<span class="property">--width-multiplier</span>: <span class="value">calc(100vw / var(--width-base))</span>;<br>
+}</code>
+		</div>
+		<button class="copy-btn" onclick="copyCSS()" style="margin-top: 16px;">
+			<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+			Copy CSS Variables
+		</button>
+
+		<hr class="section__divider">
+
+		<h3 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 24px;">Responsive Breakpoints</h3>
+		<table class="spacing-table">
+			<thead>
+				<tr>
+					<th>Breakpoint</th>
+					<th>Width</th>
+					<th>Base Unit</th>
+					<th>Usage</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Mobile</td>
+					<td>≤ 1024px</td>
+					<td>375px</td>
+					<td>Single column, touch targets, simplified navigation</td>
+				</tr>
+				<tr>
+					<td>Desktop</td>
+					<td>> 1024px</td>
+					<td>1366px</td>
+					<td>Multi-column layouts, hover states, full navigation</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="code-block" style="margin-top: 24px;">
+			<code><span class="comment">/* Responsive base unit switching */</span><br>
+:root {<br>
+&nbsp;&nbsp;<span class="property">--width-base</span>: <span class="value">1366</span>;<br>
+&nbsp;&nbsp;<span class="property">--width-current</span>: <span class="value">100vw</span>;<br>
+}<br><br>
+@media (max-width: 1024px) {<br>
+&nbsp;&nbsp;:root {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="property">--width-base</span>: <span class="value">375</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="property">--width-current</span>: <span class="value">100vmin</span>;<br>
+&nbsp;&nbsp;}<br>
+}</code>
+		</div>
+	</div>
+</section>
+
 <!-- Footer -->
 <footer style="background: var(--color-primary); padding: 48px 24px; text-align: center;">
-	<p style="font-family: var(--font-body); font-size: 13px; color: var(--color-medium-gray);">OVITRINO Brand Guidelines &mdash; 2025 &middot; Confidential</p>
+	<p style="font-family: var(--font-body); font-size: 13px; color: var(--color-medium-gray);">OVITRINO Brand Guidelines &mdash; Version 2.0 &mdash; 2025 &middot; Confidential</p>
 </footer>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">Copied to clipboard!</div>
+
+<!-- Interactive JavaScript -->
+<script>
+// Toast notification
+function showToast(message) {
+	const toast = document.getElementById('toast');
+	toast.textContent = message;
+	toast.classList.add('show');
+	setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+// Copy to clipboard
+function copyToClipboard(text, btn) {
+	navigator.clipboard.writeText(text).then(() => {
+		showToast('Copied: ' + text);
+		if (btn) {
+			btn.classList.add('copied');
+			setTimeout(() => btn.classList.remove('copied'), 2000);
+		}
+	});
+}
+
+// Copy CSS variables
+function copyCSS() {
+	const css = `:root {
+  --color-primary: #284045;
+  --color-accent: #e1bb8f;
+  --color-logo-stroke: #D8B48A;
+  --color-bg-light: #f5f3f1;
+  --color-light-gray: #d6dfde;
+  --color-white: #ffffff;
+  --color-medium-gray: #68797d;
+  --color-error: #c75050;
+  --font-display: "Kudryashev Sans", serif;
+  --font-display-alt: "Kudryashev", serif;
+  --font-body: "GraphikRBCLC", Arial, sans-serif;
+  --width-base: 1366;
+  --width-multiplier: calc(100vw / var(--width-base));
+}`;
+	copyToClipboard(css);
+}
+
+// Make color swatches clickable
+document.querySelectorAll('.color-swatch').forEach(swatch => {
+	swatch.classList.add('color-swatch--interactive');
+	swatch.addEventListener('click', function() {
+		const hex = this.querySelector('.color-swatch__hex');
+		if (hex) {
+			copyToClipboard(hex.textContent, this);
+		}
+	});
+});
+
+// Make combo cards clickable
+document.querySelectorAll('.combo-card').forEach(card => {
+	card.style.cursor = 'pointer';
+	card.addEventListener('click', function() {
+		const colors = this.style.background + ' / ' + this.style.color;
+		showToast('Color combination noted');
+	});
+});
+</script>
 
 </body>
 </html>
