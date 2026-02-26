@@ -162,6 +162,13 @@
 			color: #284045;
 			margin-bottom: calc(6 * var(--width-multiplier, 1px));
 		}
+		/* Ensure UP TOP button is clickable above preceding sections */
+		.action {
+			z-index: 2;
+		}
+		.action__button-to-top {
+			z-index: 10;
+		}
 		/* Scrollbar */
 		.ov-modal::-webkit-scrollbar {
 			width: 6px;
@@ -584,7 +591,7 @@
 					data-name="Экосистема вашего благосостояния">
 					<div class="action__container">
 						<div class="action__button-to-top js-action-button-to-top"
-							style="opacity: 1; visibility: visible; pointer-events: auto; cursor: pointer; position: relative; z-index: 100;">
+							style="opacity: 1; visibility: visible; pointer-events: auto; cursor: pointer;">
 							<div class="action__button-to-top-image"><svg>
 									<use xlink:href="images/spritemap.svg#icon-button-to-top"></use>
 								</svg></div>
@@ -784,6 +791,18 @@
 		document.addEventListener('keydown', function(e) {
 			if (e.key === 'Escape' && backdrop.classList.contains('is-active')) closeModal();
 		});
+
+		/* UP TOP button — scroll to top */
+		var upBtn = document.querySelector('.js-action-button-to-top');
+		if (upBtn) {
+			upBtn.addEventListener('click', function() {
+				if (window.gsap) {
+					window.gsap.to(window, { duration: 1, scrollTo: 0, autoKill: true });
+				} else {
+					window.scrollTo({ top: 0, behavior: 'smooth' });
+				}
+			});
+		}
 	})();
 	</script>
 </body>
