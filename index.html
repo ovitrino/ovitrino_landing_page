@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 	<meta name="description"
-		content="Рассказываем про культуру сбережения, составление своего финансового плана и приумножение средств">
+		content="Your Rooms. Your Rules. Infrastructure for collectors, clubs, and institutions to manage collections, showcase assets, and conduct private sales in closed rooms on your terms, outside public marketplaces.">
 	<meta property="og:type" content="website">
-	<meta property="og:locale" content="ru_RU">
-	<meta property="og:title" content="Академия благосостояния">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:title" content="OVITRINO">
 	<meta property="og:description"
-		content="Рассказываем про культуру сбережения, составление своего финансового плана и приумножение средств">
+		content="Your Rooms. Your Rules. Infrastructure for collectors, clubs, and institutions to manage collections, showcase assets, and conduct private sales in closed rooms on your terms, outside public marketplaces.">
 	<meta property="og:image" content="images/share.jpg">
 	<meta property="og:image:type" content="image/jpeg">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Академия благосостояния">
+	<meta name="twitter:title" content="OVITRINO">
 	<meta name="twitter:description"
-		content="Рассказываем про культуру сбережения, составление своего финансового плана и приумножение средств">
+		content="Your Rooms. Your Rules. Infrastructure for collectors, clubs, and institutions to manage collections, showcase assets, and conduct private sales in closed rooms on your terms, outside public marketplaces.">
 	<meta name="twitter:image" content="/assets/images/share.jpg">
 	<meta name="msapplication-TileColor" content="#2d89ef">
 	<meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
 	<meta name="theme-color" content="#ffffff">
-	<title>Академия благосостояния</title>
+	<title>OVITRINO</title>
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
 	<link rel="icon" href="images/favicon.ico">
 	<link rel="icon" href="images/favicon-16x16.png" sizes="16x16">
@@ -51,10 +51,12 @@
 			visibility: hidden;
 			transition: opacity 0.35s ease, visibility 0.35s ease;
 		}
+
 		.ov-modal-backdrop.is-active {
 			opacity: 1;
 			visibility: visible;
 		}
+
 		.ov-modal {
 			position: relative;
 			width: calc(680 * var(--width-multiplier, 1px));
@@ -68,9 +70,11 @@
 			transition: transform 0.35s ease;
 			color: #284045;
 		}
+
 		.ov-modal-backdrop.is-active .ov-modal {
 			transform: translateY(0);
 		}
+
 		.ov-modal__close {
 			position: sticky;
 			top: 0;
@@ -87,15 +91,18 @@
 			z-index: 2;
 			transition: border-color 0.2s ease;
 		}
+
 		.ov-modal__close:hover {
 			border-color: #284045;
 		}
+
 		.ov-modal__close svg {
 			width: calc(14 * var(--width-multiplier, 1px));
 			height: calc(14 * var(--width-multiplier, 1px));
 			stroke: #284045;
 			stroke-width: 2;
 		}
+
 		.ov-modal__title {
 			font-family: 'Kudryashev Sans', serif;
 			font-size: calc(32 * var(--width-multiplier, 1px));
@@ -103,6 +110,7 @@
 			color: #284045;
 			margin: 0 0 calc(24 * var(--width-multiplier, 1px));
 		}
+
 		.ov-modal__subtitle {
 			font-family: 'Kudryashev Sans', serif;
 			font-size: calc(20 * var(--width-multiplier, 1px));
@@ -110,6 +118,7 @@
 			color: #284045;
 			margin: calc(28 * var(--width-multiplier, 1px)) 0 calc(12 * var(--width-multiplier, 1px));
 		}
+
 		.ov-modal__text {
 			font-family: 'GraphikRBCLC', sans-serif;
 			font-size: calc(15 * var(--width-multiplier, 1px));
@@ -117,17 +126,20 @@
 			color: #284045;
 			margin: 0 0 calc(16 * var(--width-multiplier, 1px));
 		}
+
 		.ov-modal__divider {
 			border: none;
 			border-top: 1px solid #d6dfde;
 			margin: calc(28 * var(--width-multiplier, 1px)) 0;
 		}
+
 		.ov-modal__highlight {
 			background: #d6dfde;
 			border-radius: calc(8 * var(--width-multiplier, 1px));
 			padding: calc(20 * var(--width-multiplier, 1px)) calc(24 * var(--width-multiplier, 1px));
 			margin: calc(20 * var(--width-multiplier, 1px)) 0;
 		}
+
 		.ov-modal__highlight p {
 			margin: 0;
 			font-family: 'GraphikRBCLC', sans-serif;
@@ -135,6 +147,7 @@
 			line-height: 1.65;
 			color: #284045;
 		}
+
 		.ov-modal__cta {
 			display: inline-block;
 			margin-top: calc(20 * var(--width-multiplier, 1px));
@@ -148,13 +161,16 @@
 			letter-spacing: 0.04em;
 			transition: background 0.2s ease;
 		}
+
 		.ov-modal__cta:hover {
 			background: #1b2e32;
 		}
+
 		.ov-modal ul {
 			padding-left: calc(20 * var(--width-multiplier, 1px));
 			margin: calc(8 * var(--width-multiplier, 1px)) 0 calc(16 * var(--width-multiplier, 1px));
 		}
+
 		.ov-modal li {
 			font-family: 'GraphikRBCLC', sans-serif;
 			font-size: calc(15 * var(--width-multiplier, 1px));
@@ -162,27 +178,34 @@
 			color: #284045;
 			margin-bottom: calc(6 * var(--width-multiplier, 1px));
 		}
+
 		/* Ensure UP TOP button is clickable above preceding sections */
 		.action {
 			z-index: 2;
 		}
+
 		.action__button-to-top {
 			z-index: 10;
 		}
+
 		/* Scrollbar */
 		.ov-modal::-webkit-scrollbar {
 			width: 6px;
 		}
+
 		.ov-modal::-webkit-scrollbar-track {
 			background: transparent;
 		}
+
 		.ov-modal::-webkit-scrollbar-thumb {
 			background: #d6dfde;
 			border-radius: 3px;
 		}
+
 		.ov-modal::-webkit-scrollbar-thumb:hover {
 			background: #b0c0bc;
 		}
+
 		/* Mobile */
 		@media (max-width: 1024px) {
 			.ov-modal {
@@ -192,19 +215,26 @@
 				padding: 32px 20px;
 				border-radius: 10px;
 			}
+
 			.ov-modal__title {
 				font-size: 24px;
 			}
+
 			.ov-modal__subtitle {
 				font-size: 17px;
 			}
-			.ov-modal__text, .ov-modal li, .ov-modal__highlight p {
+
+			.ov-modal__text,
+			.ov-modal li,
+			.ov-modal__highlight p {
 				font-size: 14px;
 			}
+
 			.ov-modal__close {
 				width: 32px;
 				height: 32px;
 			}
+
 			.ov-modal__close svg {
 				width: 12px;
 				height: 12px;
@@ -438,7 +468,8 @@
 							</span>
 						</a>
 						<a class="block-read__item color-dark-teal" href="/nalogovye-preimushchestva/"
-							data-name="Налоговые преимущества<br>инвестора" data-aos="data-aos" data-barba-prevent data-modal="article-2">
+							data-name="Налоговые преимущества<br>инвестора" data-aos="data-aos" data-barba-prevent
+							data-modal="article-2">
 							<span class="block-read__item-img">
 								<picture>
 									<source srcset="images/2-thumb.webp" type="image/webp">
@@ -459,7 +490,8 @@
 							</span>
 						</a>
 						<a class="block-read__item color-dark-teal" href="/vsepogodnii-portfel/"
-							data-name="Всепогодный портфель: что это и как его собрать" data-aos="data-aos" data-barba-prevent data-modal="article-3">
+							data-name="Всепогодный портфель: что это и как его собрать" data-aos="data-aos"
+							data-barba-prevent data-modal="article-3">
 							<span class="block-read__item-img">
 								<picture>
 									<source srcset="images/3-thumb.webp" type="image/webp">
@@ -668,8 +700,8 @@
 		<div class="ov-modal" id="ov-modal">
 			<button class="ov-modal__close" id="ov-modal-close" type="button" aria-label="Close">
 				<svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<line x1="1" y1="1" x2="13" y2="13" stroke-linecap="round"/>
-					<line x1="13" y1="1" x2="1" y2="13" stroke-linecap="round"/>
+					<line x1="1" y1="1" x2="13" y2="13" stroke-linecap="round" />
+					<line x1="13" y1="1" x2="1" y2="13" stroke-linecap="round" />
 				</svg>
 			</button>
 			<div class="ov-modal__body" id="ov-modal-body"></div>
@@ -677,133 +709,133 @@
 	</div>
 
 	<script>
-	(function() {
-		var modalContent = {
-			'article-1': '<h2 class="ov-modal__title">Create Your Private Room</h2>' +
-				'<p class="ov-modal__text">OVITRINO lets you create invitation-only rooms where you control who enters, what they see, and how they interact with your assets. Think of it as your own private gallery — digital, secure, and entirely on your terms.</p>' +
-				'<h3 class="ov-modal__subtitle">Invite-Only Access</h3>' +
-				'<p class="ov-modal__text">Every room is private by default. Share a unique link or send invitations directly to collectors, advisors, or partners. No public listings, no uninvited guests.</p>' +
-				'<h3 class="ov-modal__subtitle">Granular Permissions</h3>' +
-				'<p class="ov-modal__text">Decide what each guest can do — view only, request pricing, leave comments, or initiate a purchase. Permissions are set per room and can be adjusted at any time.</p>' +
-				'<h3 class="ov-modal__subtitle">Organize Your Assets</h3>' +
-				'<p class="ov-modal__text">Upload high-resolution images, attach provenance documents, certificates, and condition reports. Group items into themed collections or curate them for a specific audience.</p>' +
-				'<div class="ov-modal__highlight"><p>Whether you manage five pieces or five hundred, each room becomes a living portfolio — always current, always under your control.</p></div>',
+		(function () {
+			var modalContent = {
+				'article-1': '<h2 class="ov-modal__title">Create Your Private Room</h2>' +
+					'<p class="ov-modal__text">OVITRINO lets you create invitation-only rooms where you control who enters, what they see, and how they interact with your assets. Think of it as your own private gallery — digital, secure, and entirely on your terms.</p>' +
+					'<h3 class="ov-modal__subtitle">Invite-Only Access</h3>' +
+					'<p class="ov-modal__text">Every room is private by default. Share a unique link or send invitations directly to collectors, advisors, or partners. No public listings, no uninvited guests.</p>' +
+					'<h3 class="ov-modal__subtitle">Granular Permissions</h3>' +
+					'<p class="ov-modal__text">Decide what each guest can do — view only, request pricing, leave comments, or initiate a purchase. Permissions are set per room and can be adjusted at any time.</p>' +
+					'<h3 class="ov-modal__subtitle">Organize Your Assets</h3>' +
+					'<p class="ov-modal__text">Upload high-resolution images, attach provenance documents, certificates, and condition reports. Group items into themed collections or curate them for a specific audience.</p>' +
+					'<div class="ov-modal__highlight"><p>Whether you manage five pieces or five hundred, each room becomes a living portfolio — always current, always under your control.</p></div>',
 
-			'article-2': '<h2 class="ov-modal__title">Showcase and Manage Your Collection</h2>' +
-				'<p class="ov-modal__text">OVITRINO provides a structured environment for cataloging, presenting, and reporting on your collection — whether you are an individual collector, a family office, or an institution.</p>' +
-				'<h3 class="ov-modal__subtitle">Rich Cataloging</h3>' +
-				'<p class="ov-modal__text">Capture detailed metadata for every asset: artist, medium, dimensions, provenance chain, exhibition history, insurance value, and more. All fields are searchable and exportable.</p>' +
-				'<h3 class="ov-modal__subtitle">Portfolio Views</h3>' +
-				'<ul>' +
+				'article-2': '<h2 class="ov-modal__title">Showcase and Manage Your Collection</h2>' +
+					'<p class="ov-modal__text">OVITRINO provides a structured environment for cataloging, presenting, and reporting on your collection — whether you are an individual collector, a family office, or an institution.</p>' +
+					'<h3 class="ov-modal__subtitle">Rich Cataloging</h3>' +
+					'<p class="ov-modal__text">Capture detailed metadata for every asset: artist, medium, dimensions, provenance chain, exhibition history, insurance value, and more. All fields are searchable and exportable.</p>' +
+					'<h3 class="ov-modal__subtitle">Portfolio Views</h3>' +
+					'<ul>' +
 					'<li>Grid view for visual browsing</li>' +
 					'<li>List view for quick scanning and sorting</li>' +
 					'<li>Detail view with full documentation per asset</li>' +
 					'<li>Comparative view to present items side by side</li>' +
-				'</ul>' +
-				'<h3 class="ov-modal__subtitle">Reporting &amp; Templates</h3>' +
-				'<p class="ov-modal__text">Generate branded PDF reports for insurance, estate planning, or loan collateral purposes. Use built-in templates or customize your own layout to match your organization\'s identity.</p>' +
-				'<hr class="ov-modal__divider">' +
-				'<p class="ov-modal__text">Your collection data stays private and encrypted. OVITRINO never shares, sells, or exposes your inventory to third parties.</p>',
+					'</ul>' +
+					'<h3 class="ov-modal__subtitle">Reporting &amp; Templates</h3>' +
+					'<p class="ov-modal__text">Generate branded PDF reports for insurance, estate planning, or loan collateral purposes. Use built-in templates or customize your own layout to match your organization\'s identity.</p>' +
+					'<hr class="ov-modal__divider">' +
+					'<p class="ov-modal__text">Your collection data stays private and encrypted. OVITRINO never shares, sells, or exposes your inventory to third parties.</p>',
 
-			'article-3': '<h2 class="ov-modal__title">Conduct Private Sales</h2>' +
-				'<p class="ov-modal__text">OVITRINO supports the full lifecycle of a private transaction — from initial interest through negotiation, settlement, and post-sale compliance — all within a closed, auditable environment.</p>' +
-				'<h3 class="ov-modal__subtitle">Transaction Lifecycle</h3>' +
-				'<p class="ov-modal__text">A buyer expresses interest. You review their profile, share additional materials, negotiate terms, and finalize the deal — without leaving the platform and without intermediaries taking a cut.</p>' +
-				'<h3 class="ov-modal__subtitle">Negotiation Tools</h3>' +
-				'<ul>' +
+				'article-3': '<h2 class="ov-modal__title">Conduct Private Sales</h2>' +
+					'<p class="ov-modal__text">OVITRINO supports the full lifecycle of a private transaction — from initial interest through negotiation, settlement, and post-sale compliance — all within a closed, auditable environment.</p>' +
+					'<h3 class="ov-modal__subtitle">Transaction Lifecycle</h3>' +
+					'<p class="ov-modal__text">A buyer expresses interest. You review their profile, share additional materials, negotiate terms, and finalize the deal — without leaving the platform and without intermediaries taking a cut.</p>' +
+					'<h3 class="ov-modal__subtitle">Negotiation Tools</h3>' +
+					'<ul>' +
 					'<li>Make and counter offers with time-limited validity</li>' +
 					'<li>Attach conditions, notes, or supporting documents to every offer</li>' +
 					'<li>Track the full negotiation history in one place</li>' +
-				'</ul>' +
-				'<h3 class="ov-modal__subtitle">Settlement &amp; Compliance</h3>' +
-				'<p class="ov-modal__text">Once terms are agreed, OVITRINO generates a structured settlement summary. Integrate with your preferred payment and escrow partners, or use our recommended providers. Every transaction is logged for provenance continuity.</p>' +
-				'<div class="ov-modal__highlight"><p>Private sales should feel private. OVITRINO keeps your deals discreet, documented, and under your control.</p></div>',
+					'</ul>' +
+					'<h3 class="ov-modal__subtitle">Settlement &amp; Compliance</h3>' +
+					'<p class="ov-modal__text">Once terms are agreed, OVITRINO generates a structured settlement summary. Integrate with your preferred payment and escrow partners, or use our recommended providers. Every transaction is logged for provenance continuity.</p>' +
+					'<div class="ov-modal__highlight"><p>Private sales should feel private. OVITRINO keeps your deals discreet, documented, and under your control.</p></div>',
 
-			'learn-more': '<h2 class="ov-modal__title">Partner With OVITRINO</h2>' +
-				'<p class="ov-modal__text">The global collectibles market exceeds $400 billion, yet most transactions still rely on fragmented tools, opaque intermediaries, and outdated processes. OVITRINO is building the infrastructure layer for private asset management and commerce.</p>' +
-				'<h3 class="ov-modal__subtitle">The Opportunity</h3>' +
-				'<p class="ov-modal__text">Collectors, galleries, family offices, and institutions need a unified platform to manage, showcase, and transact — privately and securely. Current solutions force them onto public marketplaces or leave them with spreadsheets and email chains.</p>' +
-				'<h3 class="ov-modal__subtitle">What We\'ve Built</h3>' +
-				'<ul>' +
+				'learn-more': '<h2 class="ov-modal__title">Partner With OVITRINO</h2>' +
+					'<p class="ov-modal__text">The global collectibles market exceeds $400 billion, yet most transactions still rely on fragmented tools, opaque intermediaries, and outdated processes. OVITRINO is building the infrastructure layer for private asset management and commerce.</p>' +
+					'<h3 class="ov-modal__subtitle">The Opportunity</h3>' +
+					'<p class="ov-modal__text">Collectors, galleries, family offices, and institutions need a unified platform to manage, showcase, and transact — privately and securely. Current solutions force them onto public marketplaces or leave them with spreadsheets and email chains.</p>' +
+					'<h3 class="ov-modal__subtitle">What We\'ve Built</h3>' +
+					'<ul>' +
 					'<li>Private rooms with granular access control</li>' +
 					'<li>Rich asset cataloging with provenance tracking</li>' +
 					'<li>End-to-end private sales with negotiation and settlement tools</li>' +
 					'<li>Branded reporting for insurance, estate, and compliance needs</li>' +
-				'</ul>' +
-				'<h3 class="ov-modal__subtitle">Get Involved</h3>' +
-				'<p class="ov-modal__text">We are actively seeking strategic partners and investors who share our vision of private, trust-based commerce. If you are interested in shaping the future of collection management, we would like to hear from you.</p>' +
-				'<a class="ov-modal__cta" href="mailto:illia@ovitrino.com">Contact Us — illia@ovitrino.com</a>'
-		};
+					'</ul>' +
+					'<h3 class="ov-modal__subtitle">Get Involved</h3>' +
+					'<p class="ov-modal__text">We are actively seeking strategic partners and investors who share our vision of private, trust-based commerce. If you are interested in shaping the future of collection management, we would like to hear from you.</p>' +
+					'<a class="ov-modal__cta" href="mailto:illia@ovitrino.com">Contact Us — illia@ovitrino.com</a>'
+			};
 
-		var backdrop = document.getElementById('ov-modal-backdrop');
-		var modal = document.getElementById('ov-modal');
-		var body = document.getElementById('ov-modal-body');
-		var closeBtn = document.getElementById('ov-modal-close');
+			var backdrop = document.getElementById('ov-modal-backdrop');
+			var modal = document.getElementById('ov-modal');
+			var body = document.getElementById('ov-modal-body');
+			var closeBtn = document.getElementById('ov-modal-close');
 
-		function openModal(key) {
-			if (!modalContent[key]) return;
-			body.innerHTML = modalContent[key];
-			document.documentElement.classList.add('is-lock-scroll');
-			backdrop.classList.add('is-active');
-			if (window.gsap) {
-				window.gsap.fromTo(modal,
-					{ opacity: 0, y: 30 },
-					{ opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
-				);
-			}
-		}
-
-		function closeModal() {
-			if (window.gsap) {
-				window.gsap.to(modal, {
-					opacity: 0, y: 20, duration: 0.25, ease: 'power2.in',
-					onComplete: function() {
-						backdrop.classList.remove('is-active');
-						document.documentElement.classList.remove('is-lock-scroll');
-						body.innerHTML = '';
-						window.gsap.set(modal, { opacity: 1, y: 0 });
-					}
-				});
-			} else {
-				backdrop.classList.remove('is-active');
-				document.documentElement.classList.remove('is-lock-scroll');
-				body.innerHTML = '';
-			}
-		}
-
-		document.addEventListener('click', function(e) {
-			var trigger = e.target.closest('[data-modal]');
-			if (trigger) {
-				e.preventDefault();
-				openModal(trigger.getAttribute('data-modal'));
-			}
-		});
-
-		closeBtn.addEventListener('click', function(e) {
-			e.stopPropagation();
-			closeModal();
-		});
-
-		backdrop.addEventListener('click', function(e) {
-			if (e.target === backdrop) closeModal();
-		});
-
-		document.addEventListener('keydown', function(e) {
-			if (e.key === 'Escape' && backdrop.classList.contains('is-active')) closeModal();
-		});
-
-		/* UP TOP button — scroll to top */
-		var upBtn = document.querySelector('.js-action-button-to-top');
-		if (upBtn) {
-			upBtn.addEventListener('click', function() {
+			function openModal(key) {
+				if (!modalContent[key]) return;
+				body.innerHTML = modalContent[key];
+				document.documentElement.classList.add('is-lock-scroll');
+				backdrop.classList.add('is-active');
 				if (window.gsap) {
-					window.gsap.to(window, { duration: 1, scrollTo: 0, autoKill: true });
+					window.gsap.fromTo(modal,
+						{ opacity: 0, y: 30 },
+						{ opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
+					);
+				}
+			}
+
+			function closeModal() {
+				if (window.gsap) {
+					window.gsap.to(modal, {
+						opacity: 0, y: 20, duration: 0.25, ease: 'power2.in',
+						onComplete: function () {
+							backdrop.classList.remove('is-active');
+							document.documentElement.classList.remove('is-lock-scroll');
+							body.innerHTML = '';
+							window.gsap.set(modal, { opacity: 1, y: 0 });
+						}
+					});
 				} else {
-					window.scrollTo({ top: 0, behavior: 'smooth' });
+					backdrop.classList.remove('is-active');
+					document.documentElement.classList.remove('is-lock-scroll');
+					body.innerHTML = '';
+				}
+			}
+
+			document.addEventListener('click', function (e) {
+				var trigger = e.target.closest('[data-modal]');
+				if (trigger) {
+					e.preventDefault();
+					openModal(trigger.getAttribute('data-modal'));
 				}
 			});
-		}
-	})();
+
+			closeBtn.addEventListener('click', function (e) {
+				e.stopPropagation();
+				closeModal();
+			});
+
+			backdrop.addEventListener('click', function (e) {
+				if (e.target === backdrop) closeModal();
+			});
+
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Escape' && backdrop.classList.contains('is-active')) closeModal();
+			});
+
+			/* UP TOP button — scroll to top */
+			var upBtn = document.querySelector('.js-action-button-to-top');
+			if (upBtn) {
+				upBtn.addEventListener('click', function () {
+					if (window.gsap) {
+						window.gsap.to(window, { duration: 1, scrollTo: 0, autoKill: true });
+					} else {
+						window.scrollTo({ top: 0, behavior: 'smooth' });
+					}
+				});
+			}
+		})();
 	</script>
 </body>
 
